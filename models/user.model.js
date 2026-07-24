@@ -16,8 +16,7 @@ const userSchema=mongoose.Schema({
     password:{
         type:String,
         required:true,
-        minLength:6,
-        select:false //never returns password from database when we query for user
+        minLength:6
     },
     phone:{
         type:Number,
@@ -32,7 +31,12 @@ const userSchema=mongoose.Schema({
     state: String,
     pincode: String,
     country: { type: String, default: 'India' }
-  }]
+  }],
+  role:{
+    type:String,
+    enum:["user","admin"],
+    default:"user"
+  }
 }
 )
 const User=mongoose.model("User",userSchema)
