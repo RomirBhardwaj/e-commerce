@@ -8,7 +8,7 @@ const apiError=require("../utils/api.error.js")
 const signup = async(req,res,next)=>{
     const body=req.body;
     try{
-        const user=await userModel.findOne({email:body.email})
+        const user=await userModel.findOne({email:body.email}).select('+password')
     if(user){
         throw new apiError("user already exists, please login/sign-in.",400)
     }
@@ -25,7 +25,7 @@ const signup = async(req,res,next)=>{
 const login = async(req,res,next)=>{
     const body=req.body
     try{
-        const userData=await userModel.findOne({email:body.email})
+        const userData=await userModel.findOne({email:body.email}).select('+password')
         if(userData){
             const verifyPassword=await bcrypt.compare(body.password,userData.password)  //returns either true or false
             if(verifyPassword){
@@ -42,5 +42,13 @@ const login = async(req,res,next)=>{
     }
 }
 
+const getUser= async(req,res,next)=>{
+    try{
+        res.status(200).json({status:true,user:req.user})
+    }catch(err){
+        res.status(900).json({Mesage:"FU"})
+    }
+}
 
-module.exports= { signup,login }
+
+module.exports= { signup,login,getUser }

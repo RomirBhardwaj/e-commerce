@@ -6,12 +6,13 @@ const authvalidate=require('../middlewares/auth.validate')
 // input schemas
 const {signupSchema,loginSchema}=require('../validators/input.schemas')
 //controllers
-const {signup,login}=require('../controllers/account.controllers')
+const {signup,login,getUser}=require('../controllers/account.controllers')
 
 
 
 
 router.post('/signup', inputValidate(signupSchema), signup)
-router.post('/login', inputValidate(loginSchema), login)
+router.post('/login', inputValidate(loginSchema), login)    
+router.get('/getuser',auth,getUser)
 
 module.exports=router
