@@ -26,12 +26,6 @@ const userSchema=mongoose.Schema({
         max:9999999999
     },
     addresses: [{
-    fullName: String,
-    street: String,
-    city: String,
-    state: String,
-    pincode: String,
-    country: { type: String, default: 'India' }
   }],
   role:{
     type:String,
