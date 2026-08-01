@@ -1,13 +1,12 @@
 const transporter=require("../config/nodemailer")
-
-const mailSender= (to,subject,body)=>{
+const mailSender= async (to,subject,body)=>{
     const composeMail={
-        from:"romirbhardwaj18@gmail.com",
+        from:process.env.gmail_name,
         to:to,
         subject:subject,
         html:body
     }
-    transporter.sendMail(composeMail)
+    return transporter.sendMail(composeMail)
 }
 
 module.exports=mailSender

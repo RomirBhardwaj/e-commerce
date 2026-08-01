@@ -10,7 +10,18 @@ const signupSchema = joi.object({
 
 const loginSchema=joi.object({
     email:joi.string().email().required(),
-    password:joi.string().min(6).required()
+    password:joi.when('loginViaOtp', {
+        is: true,
+        then: joi.string().optional(),
+        otherwise: joi.string().min(6).required()
+    }),
+    loginViaOtp:joi.boolean().default(false),
+    otp:joi.string().length(6).optional()
 })
 
-module.exports = { signupSchema,loginSchema }
+const verifyOtpSchema=joi.object({
+    email:joi.string().email().required(),
+    otp:joi.string().length(6).required()
+})
+
+module.exports = { signupSchema,loginSchema,verifyOtpSchema }
