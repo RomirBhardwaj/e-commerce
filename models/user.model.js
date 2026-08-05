@@ -29,7 +29,7 @@ const userSchema=mongoose.Schema({
   }],
   role:{
     type:String,
-    enum:["user","admin"],
+    enum:["buyer","admin","seller"],
     default:"user"
   },
   isVerified:{
