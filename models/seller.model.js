@@ -14,7 +14,6 @@ const sellerSchema = new mongoose.Schema(
     businessName: {
       type: String,
       required: true,
-      unique:true,
       trim: true,
       maxlength: 100,
     },
@@ -35,7 +34,7 @@ const sellerSchema = new mongoose.Schema(
     },
     logo: {
       public_id: String,
-      url: String,
+      url: String
     },
 
     // Contact Information

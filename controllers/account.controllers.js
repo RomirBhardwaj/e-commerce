@@ -55,7 +55,7 @@ const login = async(req,res,next)=>{
             if(!verifyPassword){
                 throw new apiError("Entered wrong password",401)
             }
-            const token=jwt.sign({role:userData.role,Id:userData._id,email:userData.email,},process.env.SECRET_KEY,{expiresIn: "30d"})
+            const token=jwt.sign({role:userData.role,Id:userData._id,email:userData.email},process.env.SECRET_KEY,{expiresIn: "30d"})
             res.status(200).json({message:"Logged in successfully",user:{id:userData._id,name:userData.name,email:userData.email},token:token}) 
         }else{
             const otp=otpGenerator()

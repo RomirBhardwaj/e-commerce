@@ -30,7 +30,7 @@ const userSchema=mongoose.Schema({
   role:{
     type:String,
     enum:["buyer","admin","seller"],
-    default:"user"
+    default:"buyer"
   },
   isVerified:{
     type:Boolean,
