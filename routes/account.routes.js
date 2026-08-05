@@ -2,7 +2,7 @@ const router=require('express').Router()
 //middlewares
 const inputValidate=require('../middlewares/input.validate')
 const auth=require('../middlewares/auth')
-const authvalidate=require('../middlewares/auth.validate')
+const authvalidate=require('../middlewares/role.validate')
 // input schemas
 const {signupSchema,loginSchema}=require('../validators/input.schemas')
 //controllers

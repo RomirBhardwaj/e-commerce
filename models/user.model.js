@@ -29,8 +29,8 @@ const userSchema=mongoose.Schema({
   }],
   role:{
     type:String,
-    enum:["buyer","admin","seller"],
-    default:"buyer"
+    enum:["customer","admin","seller","moderator","super-admin"],
+    default:"customer"
   },
   isVerified:{
     type:Boolean,
