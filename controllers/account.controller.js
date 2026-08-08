@@ -4,7 +4,7 @@ const bcrypt=require('bcrypt')
 const jwt=require('jsonwebtoken')
 const apiError=require("../utils/api.error.js")
 const crypto=require("crypto")
-const mailSender=require("../services/send.mail.js")
+const mailSender=require("../services   /send.mail.js")
 const { signupEmail,otpEmail,resetPasswordEmail } = require('../utils/emailTemplates.js')
 const otpGenerator=require("../utils/otpGenerator.js")
 

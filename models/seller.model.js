@@ -104,8 +104,13 @@ const sellerSchema = new mongoose.Schema(
     // Seller Status
     status: {
       type: String,
-      enum: ["pending", "active", "suspended", "blocked"],
+      enum: ["pending", "active", "rejected","suspended", "blocked"],
       default: "pending",
+    },
+
+    rejectionReason: {
+      type: String,
+      default: ""
     },
 
     approvedBy: {
