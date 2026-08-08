@@ -1,9 +1,10 @@
 const userModel=require("../models/user.model")
 const invitationModel=require("../models/invitation.model")
+const jwt=require("jsonwebtoken")
 const bcrypt=require("bcrypt")
 const apiError=require("../utils/api.error")
 const generateInvitationToken=require("../utils/generateInvitationToken")
-const mailSender=require("../utils/send.mail.js")
+const mailSender=require("../services/send.mail.js")
 const { invitationEmail } = require("../utils/emailTemplates.js")
     
 const createAdmin=async(req,res,next)=>{
@@ -59,8 +60,8 @@ if (
         // create invitation
         const invitationLink =`http://localhost:${process.env.port}/admin/accept-invitation?token=${token}`;
 
-        // send email
-        await invitationModel.create({email: Email,role: "moderator",token,invitedBy: req.user.id,expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000)});
+        // send email   
+        await invitationModel.create({email: Email,role: "moderator",token,invitedBy: req.user._id,expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000)});
 
         await mailSender(Email,"Moderator Invitation",invitationEmail(invitationLink));
         // return success

@@ -6,7 +6,7 @@ const authvalidate=require('../middlewares/role.validate')
 // input schemas
 const {signupSchema,loginSchema}=require('../validators/input.schemas')
 //controllers
-const {signup,login,getUser,resendOtp,verifyOtp,forgotpassoword,resetPassword}=require('../controllers/account.controllers')
+const {signup,login,getUser,resendOtp,verifyOtp,forgotpassoword,resetPassword}=require('../controllers/account.controller')
 
 
 

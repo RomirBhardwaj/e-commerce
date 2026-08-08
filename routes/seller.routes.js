@@ -6,7 +6,7 @@ const auth=require('../middlewares/auth')
 // input schemas
 // const {signupSchema,loginSchema}=require('../validators/input.schemas')
 //controllers
-const {apply}=require('../controllers/seller.controllers')
+const {apply}=require('../controllers/seller.controller')
 
 
 
