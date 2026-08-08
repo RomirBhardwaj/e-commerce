@@ -1,6 +1,6 @@
 const apiError=require("../utils/api.error.js")
-const sellerModel=require("../models/seller.model")
-const userModel=require('../models/user.model')
+const sellerModel=require("../models/seller.model.js")
+const userModel=require('../models/user.model.js')
 
 
 

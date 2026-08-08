@@ -1,4 +1,4 @@
-const userModel=require('../models/user.model')
+const userModel=require('../models/user.model.js')
 const tokenModel=require('../models/tokenmodel.js')
 const bcrypt=require('bcrypt')
 const jwt=require('jsonwebtoken')
