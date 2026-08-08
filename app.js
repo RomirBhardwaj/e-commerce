@@ -2,6 +2,7 @@ const express=require("express")
 const accountRoutes=require('./routes/account.routes')
 const sellerRoutes=require('./routes/seller.routes')
 const adminRoutes=require('./routes/admin.routes')
+const moderatorRoutes=require('./routes/moderator.routes')
 const errorHandler=require("./middlewares/error.middleware")
  
 const app=express()
@@ -13,7 +14,7 @@ app.use(express.json())
 app.use("/account", accountRoutes)
 app.use("/seller", sellerRoutes)
 app.use("/admin", adminRoutes)
-
+app.use("/moderator", moderatorRoutes)
 // app.get('/users', (req,res)=>{
 //     console.log('In get users')
 //     res.json({
